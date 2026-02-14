@@ -1,7 +1,7 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
-/* THIS WAS THE MISSING LINE! */
-#define RC(r,c) <r c>
+/* FIX: No angle brackets around r c */
+#define RC(r,c) r c
 
 / {
     chosen {
@@ -58,7 +58,7 @@
     };
 };
 
-/* OLED Display configuration using the standard name */
+/* I2C OLED Display Configuration */
 &i2c0 {
     status = "okay";
     oled: ssd1306@3c {
