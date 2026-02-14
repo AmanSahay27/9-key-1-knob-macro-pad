@@ -1,5 +1,8 @@
 #include <dt-bindings/zmk/matrix_transform.h>
 
+/* THIS WAS THE MISSING LINE! */
+#define RC(r,c) <r c>
+
 / {
     chosen {
         zmk,kscan = &kscan0;
@@ -55,14 +58,14 @@
     };
 };
 
-/* OLED Display on Pins D4 (SDA) and D5 (SCL) */
-&xiao_i2c {
+/* OLED Display configuration using the standard name */
+&i2c0 {
     status = "okay";
     oled: ssd1306@3c {
         compatible = "solomon,ssd1306fb";
         reg = <0x3c>;
         width = <128>;
-        height = <32>; /* Change to 64 if you have the taller screen */
+        height = <32>;
         segment-offset = <0>;
         page-offset = <0>;
         display-offset = <0>;
